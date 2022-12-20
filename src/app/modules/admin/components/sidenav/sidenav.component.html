@@ -1,0 +1,44 @@
+<mat-sidenav-container autosize >
+  <mat-sidenav #sidenav mode="side" opened="isExpanded">
+    <mat-nav-list>
+
+      <mat-list-item (click)="isExpanded = !isExpanded">
+        <mat-icon mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_right
+        </mat-icon>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'admin'" routerLinkActive="active">
+        <mat-icon mat-list-icon>home</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Dashboard</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'table'" routerLinkActive="active">
+        <mat-icon mat-list-icon>table</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Table</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'footer'" routerLinkActive="active">
+        <mat-icon mat-list-icon>supervisor_account</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Footer</span>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Content - rendered Content for the current router path into the <router-outlet>, e.g. /dashboard or /info-->
+  <mat-sidenav-content>
+    <mat-toolbar color="basic">
+      <mat-toolbar-row>
+        <button mat-icon-button>
+          <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
+        </button>
+        <h1>StarWars</h1>
+        <button mat-raised-button color="primary" (click)="logout()">Log Out</button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
