@@ -1,3 +1,4 @@
+import { MoreComponent } from './user-table/more/more.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserHomeComponent } from './components/user-home/user-home.component';
@@ -25,6 +26,7 @@ import { UserTableComponent } from './user-table/user-table.component';
     UserSidenavComponent,
     ShowUserApiComponent,
     UserTableComponent,
+    MoreComponent
   ],
   imports: [
     CommonModule,

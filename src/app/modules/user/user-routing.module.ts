@@ -5,6 +5,7 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
 import { UserSidenavComponent } from './components/user-sidenav/user-sidenav.component';
 import { UserFooterComponent } from './components/user-footer/user-footer.component';
 import { UserTableComponent } from './user-table/user-table.component';
+import { MoreComponent } from './user-table/more/more.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,11 @@ const routes: Routes = [
         {
           path: 'user-table',
           component: UserTableComponent
+        },
+
+        {
+          path: 'more/:id',
+          component: MoreComponent,
         },
 
         {

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddInfoComponent } from 'src/app/components/add-info/add-info.component';
+import { IsFormValidGuard } from 'src/app/guards/is-form-valid.guard';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -24,6 +26,11 @@ const routes: Routes = [
         {
           path: 'details/:id',
           component: DetailsComponent,
+        },
+        {
+          path: 'addInfo',
+          component: AddInfoComponent,
+          canDeactivate: [IsFormValidGuard]
         },
 
         {

@@ -69,6 +69,6 @@ export class TableComponent extends BaseComponent implements OnInit {
   }
 
   goToAddPeople() {
-    this.router.navigate([]);
+    this.router.navigate([`addInfo`]);
   }
 }

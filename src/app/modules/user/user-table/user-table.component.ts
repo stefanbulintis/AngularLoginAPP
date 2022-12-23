@@ -1,7 +1,8 @@
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { PostService } from 'src/app/services/post.service';
-
+import { BaseComponent } from 'src/app/base/base.component';
 export interface PeriodicElement {
   name: string;
   id: number;
@@ -24,21 +25,25 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './user-table.component.html',
   styleUrls: ['./user-table.component.scss']
 })
-export class UserTableComponent implements OnInit {
+export class UserTableComponent extends BaseComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'name'];
+  displayedColumns: string[] = ['id', 'name', 'detail'];
   dataSource = ELEMENT_DATA;
 
-  constructor(private PostService: PostService) { }
-
+  constructor(private PostService: PostService, private router: Router, private route: ActivatedRoute) {
+    super();
+  }
   ngOnInit(): void {
-    // this.PostService.getData().pipe(map((data) => {
-    //   return data.results.map((r,i) => {
-    //     return { ...r,id:i};
-    //   })
-    // })).subscribe((data) => {
-    //   this.dataSource = data;
-    //   console.log(this.dataSource)
-    // });
+    this.addSubscription(
+      this.PostService.data$.subscribe((data) => {
+        this.dataSource = data;
+      })
+    );
+
+    this.PostService.getData();
+  }
+  goToDetails(index){
+    console.log(index);
+    this.router.navigate([`user/more/${index}`]);
   }
 }
