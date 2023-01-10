@@ -1,12 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AddInfoComponent } from '../components/add-info/add-info.component';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class IsFormValidGuard implements CanDeactivate<AddInfoComponent> {
+  // constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData){}
   canDeactivate(
     component: AddInfoComponent,
     currentRoute: ActivatedRouteSnapshot,
@@ -16,5 +19,4 @@ export class IsFormValidGuard implements CanDeactivate<AddInfoComponent> {
       ? true
       : window.confirm('You have unsaved changes. Leave?');
   }
-
 }

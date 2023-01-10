@@ -31,6 +31,7 @@ export class AddInfoComponent implements OnInit {
   onSave() {
     if(this.addForm.valid) {
       console.log(this.addForm.value);
+      localStorage.setItem('people', JSON.stringify(this.addForm.value));
     }
   }
 }

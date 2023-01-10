@@ -18,6 +18,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { MatOption } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [],
@@ -40,7 +42,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatProgressSpinnerModule,
     MatSelectModule,
     MatFormFieldModule,
-
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
 
   exports: [
@@ -60,7 +63,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatSelectModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
 })
 export class MaterialsModule { }
