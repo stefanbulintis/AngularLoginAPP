@@ -13,29 +13,33 @@ import { BodyComponent } from './components/body/body.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { TableComponent } from './table/table.component';
 import { DetailsComponent } from './table/details/details.component';
+import { SharedModule } from "../../shared/shared.module";
+import { EditComponent } from './table/edit/edit.component';
 
 
 @NgModule({
-  declarations: [
-    AdminDashboardComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-    BodyComponent,
-    SidenavComponent,
-    TableComponent,
-    DetailsComponent,
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    FormsModule,
-    MaterialsModule,
-    ReactiveFormsModule,
-    RouterModule,
-  ],
-  exports: [
-    FooterComponent
-  ]
+    declarations: [
+        AdminDashboardComponent,
+        HeaderComponent,
+        FooterComponent,
+        HomeComponent,
+        BodyComponent,
+        SidenavComponent,
+        TableComponent,
+        DetailsComponent,
+        EditComponent,
+    ],
+    exports: [
+        FooterComponent
+    ],
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        FormsModule,
+        MaterialsModule,
+        ReactiveFormsModule,
+        RouterModule,
+        SharedModule
+    ]
 })
 export class AdminModule { }

@@ -13,6 +13,7 @@ import { UserBodyComponent } from './components/user-body/user-body.component';
 import { UserSidenavComponent } from './components/user-sidenav/user-sidenav.component';
 import { ShowUserApiComponent } from './show-user-api/show-user-api.component';
 import { UserTableComponent } from './user-table/user-table.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -34,7 +35,8 @@ import { UserTableComponent } from './user-table/user-table.component';
     FormsModule,
     MaterialsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ]
 })
 export class UserModule { }

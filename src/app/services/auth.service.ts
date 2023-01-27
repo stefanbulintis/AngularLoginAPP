@@ -9,11 +9,11 @@ export class AuthService {
   constructor(private router: Router) {}
 
   setToken(token: string): void {
-    localStorage.setItem('token', token);
+    localStorage.setItem('token', JSON.stringify(token));
   }
 
   getToken(): string | null {
-    return localStorage.getItem('token');
+    return JSON.parse(localStorage.getItem('token'));
   }
 
   isLoggedIn() {
@@ -21,8 +21,10 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['login']);
+    if(confirm("Are you sure you want to log out?")) {
+      localStorage.removeItem('token');
+      this.router.navigate(['login']);
+    }
   }
 
   login({ email, password }: any)

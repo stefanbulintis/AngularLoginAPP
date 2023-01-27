@@ -1,3 +1,4 @@
+import { PeopleService } from 'src/app/services/people.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
@@ -30,17 +31,13 @@ export class UserTableComponent extends BaseComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'detail'];
   dataSource = ELEMENT_DATA;
 
-  constructor(private PostService: PostService, private router: Router, private route: ActivatedRoute) {
+  constructor(private PostService: PostService, private router: Router, private route: ActivatedRoute, private peopleService: PeopleService) {
     super();
   }
   ngOnInit(): void {
-    this.addSubscription(
-      this.PostService.data$.subscribe((data) => {
-        this.dataSource = data;
-      })
-    );
-
-    this.PostService.getData();
+    this.peopleService.peopleObs$.subscribe((data) => {
+      this.dataSource = data;
+      });
   }
   goToDetails(index){
     console.log(index);

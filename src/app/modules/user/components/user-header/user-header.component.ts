@@ -1,3 +1,4 @@
+import { PeopleService } from 'src/app/services/people.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -8,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UserHeaderComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private peopleService: PeopleService) { }
 
   ngOnInit(): void {
   }
@@ -16,5 +17,6 @@ export class UserHeaderComponent implements OnInit {
   logout(): void {
     this.auth.logout();
     localStorage.clear();
+    this.peopleService.clear();
   }
 }

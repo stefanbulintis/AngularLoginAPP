@@ -1,0 +1,83 @@
+<app-back-button-generic></app-back-button-generic>
+
+<form id="container" [formGroup]="addForm">
+  <mat-card class="mat-elevation-z24">
+    <mat-toolbar color="primary">
+      <span>Add new people</span>
+    </mat-toolbar>
+
+    <mat-card-content>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput type="text" placeholder="Enter name"  />
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Height</mat-label>
+        <input formControlName="height" matInput type="text" placeholder="Enter height"  />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Mass</mat-label>
+        <input formControlName="mass" matInput type="text" placeholder="Enter mass"  />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Hair Color</mat-label>
+        <input formControlName="hair_color" matInput type="text" placeholder="Enter hair color"  />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Skin Color</mat-label>
+        <input formControlName="skin_color" matInput type="text" placeholder="Enter skin color"  />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Eye Color</mat-label>
+        <input formControlName="eye_color" matInput type="text" placeholder="Enter eye color"  />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Neutre">N/A</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Homeworld</mat-label>
+        <input formControlName="homeworld" matInput type="text" placeholder="Enter homeworld"  />
+      </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Hobbies</mat-label>
+      <mat-select formControlName="hobbies" multiple>
+        <!-- <mat-select-trigger>
+          {{hobbies.value?.[0] || ''}}
+          <span *ngIf="(hobbies.value?.length || 0) > 1" class="example-additional-selection">
+            (+{{(hobbies.value?.length || 0) - 1}} {{hobbies.value?.length === 2 ? 'other' : 'others'}})
+          </span>
+        </mat-select-trigger> -->
+        <mat-option *ngFor="let hobbies of hobbiesList" [value]="hobbies">{{hobbies}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input formControlName="birth_year" matInput [matDatepicker]="picker">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </mat-card-content>
+
+    <mat-card-footer>
+      <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+    </mat-card-footer>
+  </mat-card>
+
+</form>

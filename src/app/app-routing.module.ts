@@ -1,5 +1,5 @@
 import { IsFormValidGuard } from './guards/is-form-valid.guard';
-import { AddInfoComponent } from './components/add-info/add-info.component';
+import { AddInfoComponent } from './shared/add-info/add-info.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
@@ -42,7 +42,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

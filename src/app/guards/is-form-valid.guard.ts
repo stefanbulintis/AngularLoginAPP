@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AddInfoComponent } from '../components/add-info/add-info.component';
+import { AddInfoComponent } from '../shared/add-info/add-info.component';
 
 
 @Injectable({

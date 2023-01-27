@@ -1,15 +1,16 @@
-<!-- <section>
-  <div class="example-button-row">
-    <button mat-flat-button color="primary" (click)="goToAddPeople()">Add new item</button>
-  </div>
-</section>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<app-add-button-generic></app-add-button-generic>
+<table mat-table [dataSource]="tableData" class="mat-elevation-z8">
 
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> ID </th>
     <td mat-cell *matCellDef="let element; let index = i"> {{element.id}} </td>
   </ng-container>
 
+  <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
     <td mat-cell  *matCellDef="let element"> {{element.name}} </td>
@@ -27,7 +28,7 @@
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef> Edit </th>
     <td mat-cell *matCellDef="let row; let index = i">
-      <button mat-mini-fab color="warn" aria-label="Example icon button with a edit icon">
+      <button [routerLink]="['../edit', row.id]" mat-mini-fab color="warn" aria-label="Example icon button with a edit icon">
         <mat-icon>edit</mat-icon>
       </button>
     </td>
@@ -47,6 +48,4 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-</table> -->
-<app-tabel-generic [dataSource]="data"></app-tabel-generic>
-<router-outlet></router-outlet>
+</table>

@@ -1,14 +1,13 @@
-<form id="container" [formGroup]="addForm">
+<app-back-button-generic></app-back-button-generic>
+
+<form id="container" [formGroup]="editForm">
+
   <mat-card class="mat-elevation-z24">
     <mat-toolbar color="primary">
-      <span>Add new peoples</span>
+      <span>Edit people:</span>
     </mat-toolbar>
 
     <mat-card-content>
-      <mat-form-field appearance="outline">
-        <mat-label>ID</mat-label>
-        <input type="text" formControlName="id" matInput placeholder="Enter ID"  />
-      </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
@@ -54,18 +53,31 @@
         <mat-label>Homeworld</mat-label>
         <input formControlName="homeworld" matInput type="text" placeholder="Enter homeworld"  />
       </mat-form-field>
-    </mat-card-content>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Hobbies</mat-label>
+      <mat-select formControlName="hobbies" multiple>
+        <!-- <mat-select-trigger>
+          {{hobbies.value?.[0] || ''}}
+          <span *ngIf="(hobbies.value?.length || 0) > 1" class="example-additional-selection">
+            (+{{(hobbies.value?.length || 0) - 1}} {{hobbies.value?.length === 2 ? 'other' : 'others'}})
+          </span>
+        </mat-select-trigger> -->
+        <mat-option *ngFor="let hobbies of hobbiesList" [value]="hobbies">{{hobbies}}</mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker">
+      <input formControlName="birth_year" matInput [matDatepicker]="picker">
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
+  </mat-card-content>
 
     <mat-card-footer>
-      <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+      <button mat-raised-button color="primary" (click)="onUpdate()">Update</button>
     </mat-card-footer>
   </mat-card>
 

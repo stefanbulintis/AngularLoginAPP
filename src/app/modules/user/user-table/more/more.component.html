@@ -1,3 +1,7 @@
+
+<app-details-generic></app-details-generic>
+
+<router-outlet></router-outlet>
 <!-- <div class="container-fluid u-margin-bottom-huge">
 
   <h2>Details for: {{found.name}}</h2>
@@ -89,7 +93,7 @@
   </table>
 
 </div> -->
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<!-- <table mat-table [dataSource]="item" class="mat-elevation-z8"> -->
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -98,7 +102,7 @@
 
 
   <!-- Name Column -->
-  <ng-container matColumnDef="name">
+  <!-- <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
     <td mat-cell  *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
@@ -126,14 +130,14 @@
   <ng-container matColumnDef="eye_color">
     <th mat-header-cell *matHeaderCellDef> Eye color </th>
     <td mat-cell  *matCellDef="let element"> {{element.eye_color}} </td>
-  </ng-container>
+  </ng-container> -->
 
   <!-- <ng-container matColumnDef="birth_date">
     <th mat-header-cell *matHeaderCellDef> Birth Date </th>
     <td mat-cell  *matCellDef="let element"> {{element.birth_date}} </td>
   </ng-container> -->
 
-  <ng-container matColumnDef="gender">
+  <!-- <ng-container matColumnDef="gender">
     <th mat-header-cell *matHeaderCellDef> Gender </th>
     <td mat-cell  *matCellDef="let element"> {{element.gender}} </td>
   </ng-container>
@@ -141,4 +145,4 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
-</table>
+</table> -->

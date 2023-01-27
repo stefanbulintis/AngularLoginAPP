@@ -47,6 +47,7 @@ export class LoginComponent implements OnInit {
     if (this.form.valid) {
       this.auth.login(this.form.value)
       alert("Te-ai logat cu succes!")
+
       // .subscribe(
       //   (result) => {
       //     console.log(result);
