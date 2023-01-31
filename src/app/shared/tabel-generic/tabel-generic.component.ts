@@ -18,8 +18,15 @@ export class TabelGenericComponent implements OnInit {
     console.log(data)
   };
 
+  @Input() set columns(dataTitle: any[]) {
+    this.newCol = dataTitle.map(item => {
+      return item.name;
+    })
+  };
+
+  newCol: string[];
   keys: string[];
-  displayedColumns: string[] = ['id', 'name', 'detail', 'edit', 'actions'];
+  //displayedColumns: string[] = ['id', 'name', 'detail', 'edit', 'actions'];
 
   constructor(private router: Router,
     private peopleService: PeopleService) {}
