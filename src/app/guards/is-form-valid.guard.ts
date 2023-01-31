@@ -4,7 +4,6 @@ import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot, UrlTree } f
 import { Observable } from 'rxjs';
 import { AddInfoComponent } from '../shared/add-info/add-info.component';
 
-
 @Injectable({
   providedIn: 'root'
 })

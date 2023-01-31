@@ -8,6 +8,7 @@ import { DetailsGenericComponent } from './details-generic/details-generic.compo
 import { EditGenericComponent } from './edit-generic/edit-generic.component';
 import { AddButtonGenericComponent } from './add-button-generic/add-button-generic.component';
 import { BackButtonGenericComponent } from './back-button-generic/back-button-generic.component';
+import { DialogGenericComponent } from './dialog-generic/dialog-generic.component';
 
 @NgModule({
  declarations: [
@@ -15,7 +16,8 @@ import { BackButtonGenericComponent } from './back-button-generic/back-button-ge
     DetailsGenericComponent,
     EditGenericComponent,
     AddButtonGenericComponent,
-    BackButtonGenericComponent
+    BackButtonGenericComponent,
+    DialogGenericComponent
   ],
  imports: [
    CommonModule,

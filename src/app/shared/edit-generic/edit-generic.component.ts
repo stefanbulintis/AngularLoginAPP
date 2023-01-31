@@ -1,7 +1,9 @@
+import { DialogService } from './../../services/dialog.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, Params, ActivatedRoute } from '@angular/router';
 import { PeopleService } from 'src/app/services/people.service';
+import { DialogGenericComponent } from '../dialog-generic/dialog-generic.component';
 
 @Component({
   selector: 'app-edit-generic',
@@ -16,7 +18,7 @@ export class EditGenericComponent implements OnInit {
   isFormValid = false;
   id: number;
 
-  constructor(private fb: FormBuilder, private peopleService: PeopleService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private dialogService: DialogService,private fb: FormBuilder, private peopleService: PeopleService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.editForm = this.fb.group({
@@ -46,4 +48,9 @@ export class EditGenericComponent implements OnInit {
     }
     console.log(this.editForm);
   }
+
+  back(): void {
+    this.dialogService.back();
+  }
+
 }

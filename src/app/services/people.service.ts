@@ -180,7 +180,7 @@ export class PeopleService {
   }
 
   deletePeople(id) {
-    if (confirm('Are you sure to delete ID: ' + id + ' ?')) {
+    if (confirm('Are you sure you want to delete ID: ' + id + ' ?')) {
       this.obj = this.obj.filter((d) => {
         return d.id != id;
       });

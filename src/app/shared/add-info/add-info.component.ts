@@ -1,3 +1,4 @@
+import { DialogService } from './../../services/dialog.service';
 import { Router } from '@angular/router';
 import { PeopleService } from 'src/app/services/people.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +16,7 @@ export class AddInfoComponent implements OnInit {
   isFormSubmitted = false;
   // isFormValid = () => this.isFormSubmitted || !this.addForm?.dirty;
   isFormValid = false;
-  constructor(private fb: FormBuilder, private peopleService: PeopleService, private router: Router) { }
+  constructor(private dialogService: DialogService, private fb: FormBuilder, private peopleService: PeopleService, private router: Router) { }
 
   ngOnInit(): void {
     this.addForm = this.fb.group({
@@ -41,4 +42,9 @@ export class AddInfoComponent implements OnInit {
     }
     console.log(this.addForm);
   }
+
+  back(): void {
+    this.dialogService.back();
+  }
+
 }
