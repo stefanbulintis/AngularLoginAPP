@@ -1,11 +1,12 @@
 import { Observable, of, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, CanActivate } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthService{
+  verifyToken: string;
   constructor(private router: Router) {}
 
   setToken(token: string): void {
@@ -13,7 +14,8 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    return JSON.parse(localStorage.getItem('token'));
+    this.verifyToken = JSON.parse(localStorage.getItem('token'));
+    return this.verifyToken;
   }
 
   isLoggedIn() {
@@ -30,15 +32,16 @@ export class AuthService {
   login({ email, password }: any)
   {
     if (email === 'admin@admin.com' && password === 'admin123') {
-      this.setToken('abcdefghijklmnopqrstuvwxyz');
+      this.setToken('admin');
       this.router.navigate(['/admin/admin-dashboard']);
     }
     else{
+      this.setToken('user');
       localStorage.setItem('user', JSON.stringify({email, password}))
       this.router.navigate(['/user']);
     }
   }
-
-
-
+  VerifyToken(){
+    console.log(this.verifyToken);
+  }
 }

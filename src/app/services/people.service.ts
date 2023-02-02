@@ -1,3 +1,5 @@
+// import { ColumnObject } from './../shared/models/column-object.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable, Subject, tap, map, delay } from 'rxjs';
@@ -151,14 +153,15 @@ export class PeopleService {
   private _peopleSubject$ = new BehaviorSubject<People[]>([]);
   public peopleObs$ = this._peopleSubject$.asObservable();
 
-  constructor() {
+  constructor(private authService: AuthService) {
     const listService = JSON.parse(localStorage.getItem('list'));
-    console.log(listService);
+    // console.log(listService);
     if (!listService) {
       localStorage.setItem('list', JSON.stringify(this.obj));
     } else {
       this.obj = listService;
     }
+    console.log(this.authService.getToken());
   }
 
   init(): Observable<People[]> {
@@ -221,10 +224,17 @@ export class PeopleService {
     this.emit(null);
   }
 
-  // deleteData(id) {
-  //   this.peopleData = this.list.filter(d => {
-  //     return d.id != id;
-  //   })
-  //   this.data$.next(this.peopleData);
+  getRole() {
+    
+  }
+
+  // configCol(): ColumnObject[] {
+    // let columns = Object.keys(this.data[0])
+
   // }
+
+  // return Object.keys(data[0]).map(item => {
+  //   return {
+  //     name: item
+  //   }
 }

@@ -1,6 +1,6 @@
 export interface People {
-  id: number;
-  name: string;
+  Id: number;
+  Name: string;
   height: string | number;
   mass: string | number;
   hair_color: string;

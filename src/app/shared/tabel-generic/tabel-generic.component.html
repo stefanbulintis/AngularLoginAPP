@@ -5,11 +5,57 @@
         The actual rendered columns are set as a property on the row definition" -->
 
   <!-- Position Column -->
-  <ng-container [matColumnDef]="col" *ngFor="let col of newCol">
-    <th mat-header-cell *matHeaderCellDef> {{ col }} </th>
-    <td mat-cell *matCellDef="let element; let index = i"> {{ element[col] }} </td>
+  <ng-container [matColumnDef]="col.name" *ngFor="let col of newCol">
+    <th mat-header-cell *matHeaderCellDef> {{ col.name | uppercase }} </th>
+
+    <ng-container [ngSwitch]="col.type">
+      <ng-container *ngSwitchCase="'text'">
+        <td mat-cell *matCellDef="let element; let index = i"> {{ element[col.name] }} </td>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'button'">
+        <td mat-cell *matCellDef="let element; let index = i">
+          <ng-container *ngIf="col.action === 'edit'">
+            <button [routerLink]="['../edit', element.id]" mat-mini-fab color="warn"
+              aria-label="Example icon button with a edit icon">
+              <mat-icon> {{ col.name }} </mat-icon>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="col.action === 'delete'">
+            <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon"
+              (click)="deleteData(element.id)">
+              <mat-icon>{{col.name}}</mat-icon>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="col.action === 'details'">
+              <button [routerLink]="['../details', element.id]" mat-mini-fab color="accent" aria-label="Example icon button with a detail icon">
+                <mat-icon>remove_red_eye</mat-icon>
+              </button>
+
+          </ng-container>
+
+        </td>
+      </ng-container>
+
+
+    </ng-container>
   </ng-container>
 
+  <!-- <ng-container *ngSwitchCase="'button'">
+        <td mat-cell *matCellDef="let element; let index = i">
+          <button [routerLink]="['../edit', element.id]" mat-mini-fab color="primary"
+            aria-label="Example icon button with a edit icon">
+            <mat-icon> {{ col.name }} </mat-icon>
+          </button>
+        </td>
+      </ng-container> -->
+
+  <!-- <ng-container [matColumnDef]="'edit'" *ngIf="isAdmin === 'admin'" [matColumnDef]="'edit'">
+    <th mat-header-cell *matHeaderCellDef> EDIT </th>
+    <td mat-cell *matCellDef="let element; let index = i">  <button [routerLink]="['../edit', element.id]" mat-mini-fab color="warn" aria-label="Example icon button with a edit icon">
+      <mat-icon>edit</mat-icon>
+    </button> </td>
+  </ng-container> -->
   <!-- Name Column -->
   <!-- <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
@@ -45,7 +91,7 @@
 
 
 
-  <tr mat-header-row *matHeaderRowDef="newCol"></tr>
-  <tr mat-row *matRowDef="let row; columns: newCol;"></tr>
+  <tr mat-header-row *matHeaderRowDef="names"></tr>
+  <tr mat-row *matRowDef="let row; columns: names;"></tr>
 
 </table>

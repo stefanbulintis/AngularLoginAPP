@@ -6,6 +6,7 @@ import { UserSidenavComponent } from './components/user-sidenav/user-sidenav.com
 import { UserFooterComponent } from './components/user-footer/user-footer.component';
 import { UserTableComponent } from './user-table/user-table.component';
 import { MoreComponent } from './user-table/more/more.component';
+import { DetailsComponent } from '../admin/table/details/details.component';
 
 
 const routes: Routes = [
@@ -24,8 +25,8 @@ const routes: Routes = [
         },
 
         {
-          path: 'more/:id',
-          component: MoreComponent,
+          path: 'details/:id',
+          component: DetailsComponent,
         },
 
         {
