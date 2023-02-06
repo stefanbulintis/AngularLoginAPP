@@ -13,7 +13,7 @@ import { MaterialsModule } from './shared/materials/materials.module';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BaseComponent } from './base/base.component';
-import { AddInfoComponent } from './shared/add-info/add-info.component';
+import { AddInfoComponent } from './shared/Components/add-info/add-info.component';
 
 
 
@@ -23,7 +23,7 @@ import { AddInfoComponent } from './shared/add-info/add-info.component';
     LoginComponent,
     ForgotPasswordComponent,
     NotFoundComponent,
-    AddInfoComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,14 @@
+import { AddInfoComponent } from 'src/app/shared/Components/add-info/add-info.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TabelGenericComponent } from './tabel-generic/tabel-generic.component';
+import { TabelGenericComponent } from './Components/tabel-generic/tabel-generic.component';
 import { MaterialsModule } from './materials/materials.module';
-import { DetailsGenericComponent } from './details-generic/details-generic.component';
-import { EditGenericComponent } from './edit-generic/edit-generic.component';
-import { AddButtonGenericComponent } from './add-button-generic/add-button-generic.component';
-import { BackButtonGenericComponent } from './back-button-generic/back-button-generic.component';
+import { DetailsGenericComponent } from './Components/details-generic/details-generic.component';
+import { EditGenericComponent } from './Components/edit-generic/edit-generic.component';
+import { AddButtonGenericComponent } from './Buttons/add-button-generic/add-button-generic.component';
+import { BackButtonGenericComponent } from './Buttons/back-button-generic/back-button-generic.component';
 import { DialogGenericComponent } from './dialog-generic/dialog-generic.component';
 
 @NgModule({
@@ -17,13 +18,15 @@ import { DialogGenericComponent } from './dialog-generic/dialog-generic.componen
     EditGenericComponent,
     AddButtonGenericComponent,
     BackButtonGenericComponent,
-    DialogGenericComponent
+    DialogGenericComponent,
+
   ],
  imports: [
    CommonModule,
    RouterModule,
    MaterialsModule,
-   ReactiveFormsModule
+   ReactiveFormsModule,
+
  ],
  exports: [
   CommonModule,
@@ -33,7 +36,8 @@ import { DialogGenericComponent } from './dialog-generic/dialog-generic.componen
   DetailsGenericComponent,
   EditGenericComponent,
   AddButtonGenericComponent,
-  BackButtonGenericComponent
+  BackButtonGenericComponent,
+
  ]
 })
 export class SharedModule { }

@@ -1,4 +1,24 @@
-<app-back-button-generic></app-back-button-generic>
+<form id="formgroup">
+  <mat-form-field appearance="outline">
+    <mat-label> {{ label }} </mat-label>
+    <input
+      [formControl] = "control"
+      [type] = "type"
+      [placeholder] = "placeholder"
+      [matInput type] = "text"
+      [required] = "required"
+      [readonly] = "readonly"
+    />
+  </mat-form-field>
+
+  <ng-container *ngIf="displayErrors()">
+    <div *ngIf="control.errors.required">
+      This value is required
+    </div>
+  </ng-container>
+</form>
+
+<!-- <app-back-button-generic [text]="'Back'" (onClick)="back($event)" [ngClass]="'primary'"></app-back-button-generic>
 
 <form id="container" [formGroup]="addForm">
   <mat-card class="mat-elevation-z24">
@@ -56,12 +76,6 @@
     <mat-form-field appearance="fill">
       <mat-label>Hobbies</mat-label>
       <mat-select formControlName="hobbies" multiple>
-        <!-- <mat-select-trigger>
-          {{hobbies.value?.[0] || ''}}
-          <span *ngIf="(hobbies.value?.length || 0) > 1" class="example-additional-selection">
-            (+{{(hobbies.value?.length || 0) - 1}} {{hobbies.value?.length === 2 ? 'other' : 'others'}})
-          </span>
-        </mat-select-trigger> -->
         <mat-option *ngFor="let hobbies of hobbiesList" [value]="hobbies">{{hobbies}}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -80,4 +94,4 @@
     </mat-card-footer>
   </mat-card>
 
-</form>
+</form> -->

@@ -1,5 +1,5 @@
 import { MatDialog } from '@angular/material/dialog';
-import { DialogGenericComponent } from './../shared/dialog-generic/dialog-generic.component';
+import { DialogGenericComponent } from '../shared/dialog-generic/dialog-generic.component';
 import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
 

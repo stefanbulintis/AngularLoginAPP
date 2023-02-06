@@ -4,8 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
 import { BaseComponent } from 'src/app/base/base.component';
-import { PostService } from 'src/app/services/post.service';
-import { Token } from '@angular/compiler';
 // import { ColumnObject } from 'src/app/shared/models/column-object.model';
 // import { ColumnType } from 'src/app/shared/models/column-type.model';
 
@@ -64,27 +62,7 @@ export class TableComponent extends BaseComponent implements OnInit {
     }
     return temporaryColumns;
   }
-
-
-  // private getColumns(data: any[]): {[key: string]: string}[] {
-  //   let temporaryColumns = Object.keys(data[0]).map(item => {
-  //     return {
-  //       name: item,
-  //       type: "text"
-  //     }
-  //   }).slice(0,2)
-  //   if(this.authService.getToken() === "admin"){
-  //     temporaryColumns = [
-  //       ...temporaryColumns, {
-  //         name: "edit",
-  //         type: "button"
-  //       },
-  //       {
-  //         name: "delete",
-  //         type: "button"
-  //       }
-  //     ]
-  //   }
-  //   return temporaryColumns;
-  //   }
+  back(item): void {
+    this.peopleService.back();
+  }
   }

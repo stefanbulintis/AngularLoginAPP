@@ -1,6 +1,7 @@
+import { AddUserComponent } from './components/add-user/add-user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddInfoComponent } from 'src/app/shared/add-info/add-info.component';
+import { AddInfoComponent } from 'src/app/shared/Components/add-info/add-info.component';
 import { IsFormValidGuard } from 'src/app/guards/is-form-valid.guard';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -29,8 +30,8 @@ const routes: Routes = [
           component: DetailsComponent,
         },
         {
-          path: 'addInfo',
-          component: AddInfoComponent,
+          path: 'addUser',
+          component: AddUserComponent,
           canDeactivate: [IsFormValidGuard]
         },
         {

@@ -1,4 +1,4 @@
-import { PeopleService } from './../../services/people.service';
+import { PeopleService } from '../../services/people.service';
 import { Component, inject, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Location } from '@angular/common';

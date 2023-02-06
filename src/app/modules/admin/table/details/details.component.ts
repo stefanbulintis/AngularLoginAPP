@@ -4,8 +4,6 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 
-
-
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -23,4 +21,9 @@ export class DetailsComponent extends BaseComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  back(item): void {
+    this.peopleService.back();
+  }
+
 }

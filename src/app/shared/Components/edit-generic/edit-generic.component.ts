@@ -1,9 +1,9 @@
-import { DialogService } from './../../services/dialog.service';
+import { DialogService } from '../../../services/dialog.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, Params, ActivatedRoute } from '@angular/router';
 import { PeopleService } from 'src/app/services/people.service';
-import { DialogGenericComponent } from '../dialog-generic/dialog-generic.component';
+import { DialogGenericComponent } from '../../dialog-generic/dialog-generic.component';
 
 @Component({
   selector: 'app-edit-generic',

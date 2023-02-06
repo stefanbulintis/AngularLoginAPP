@@ -1,5 +1,5 @@
 import { IsFormValidGuard } from './guards/is-form-valid.guard';
-import { AddInfoComponent } from './shared/add-info/add-info.component';
+import { AddInfoComponent } from './shared/Components/add-info/add-info.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';

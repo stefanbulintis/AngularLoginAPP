@@ -27,16 +27,15 @@
               <mat-icon>{{col.name}}</mat-icon>
             </button>
           </ng-container>
+
           <ng-container *ngIf="col.action === 'details'">
               <button [routerLink]="['../details', element.id]" mat-mini-fab color="accent" aria-label="Example icon button with a detail icon">
                 <mat-icon>remove_red_eye</mat-icon>
               </button>
-
           </ng-container>
 
         </td>
       </ng-container>
-
 
     </ng-container>
   </ng-container>

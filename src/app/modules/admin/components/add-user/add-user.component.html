@@ -1,0 +1,16 @@
+<form id="container" [formGroup]="addForm">
+  <mat-card class="mat-elevation-z24">
+    <mat-toolbar color="primary">
+      <span>Add new people</span>
+    </mat-toolbar>
+
+<app-add-info>
+  
+</app-add-info>
+
+    <mat-card-footer>
+      <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+    </mat-card-footer>
+  </mat-card>
+
+</form>

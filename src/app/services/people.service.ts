@@ -1,7 +1,7 @@
 // import { ColumnObject } from './../shared/models/column-object.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { Injectable } from '@angular/core';
-
+import { Location } from '@angular/common';
 import { BehaviorSubject, Observable, Subject, tap, map, delay } from 'rxjs';
 import { People } from '../model/people';
 
@@ -153,7 +153,7 @@ export class PeopleService {
   private _peopleSubject$ = new BehaviorSubject<People[]>([]);
   public peopleObs$ = this._peopleSubject$.asObservable();
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private location: Location) {
     const listService = JSON.parse(localStorage.getItem('list'));
     // console.log(listService);
     if (!listService) {
@@ -224,8 +224,8 @@ export class PeopleService {
     this.emit(null);
   }
 
-  getRole() {
-    
+  back(): void {
+    this.location.back();
   }
 
   // configCol(): ColumnObject[] {

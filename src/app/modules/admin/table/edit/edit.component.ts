@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PeopleService } from 'src/app/services/people.service';
 
 @Component({
   selector: 'app-edit',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditComponent implements OnInit {
 
-  constructor() { }
+  constructor(private peopleService: PeopleService,) { }
 
   ngOnInit(): void {
+  }
+  back(item): void {
+    this.peopleService.back();
   }
 
 }

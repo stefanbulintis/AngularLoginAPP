@@ -1,3 +1,4 @@
+import { AddInfoComponent } from 'src/app/shared/Components/add-info/add-info.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -15,8 +16,9 @@ import { TableComponent } from './table/table.component';
 import { DetailsComponent } from './table/details/details.component';
 import { SharedModule } from "../../shared/shared.module";
 import { EditComponent } from './table/edit/edit.component';
-
-
+import { Location } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { AddUserComponent } from './components/add-user/add-user.component';
 @NgModule({
     declarations: [
         AdminDashboardComponent,
@@ -28,6 +30,8 @@ import { EditComponent } from './table/edit/edit.component';
         TableComponent,
         DetailsComponent,
         EditComponent,
+        AddUserComponent,
+        AddInfoComponent
     ],
     exports: [
         FooterComponent
@@ -39,7 +43,9 @@ import { EditComponent } from './table/edit/edit.component';
         MaterialsModule,
         ReactiveFormsModule,
         RouterModule,
-        SharedModule
+        SharedModule,
+        HttpClientModule,
+        MaterialsModule,
     ]
 })
 export class AdminModule { }
