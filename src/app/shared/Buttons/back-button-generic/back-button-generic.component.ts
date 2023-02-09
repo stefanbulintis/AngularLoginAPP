@@ -14,7 +14,8 @@ export class BackButtonGenericComponent implements OnInit {
   @Input() text: string;
   @Input() btnClass: string;
   @Output() onClick = new EventEmitter<string>()
-  constructor(private location: Location, private peopleService: PeopleService) {}
+
+  constructor(private peopleService: PeopleService) {}
 
   ngOnInit(): void {}
 

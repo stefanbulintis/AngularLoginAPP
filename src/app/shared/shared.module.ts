@@ -1,3 +1,4 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { AddInfoComponent } from 'src/app/shared/Components/add-info/add-info.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -19,7 +20,6 @@ import { DialogGenericComponent } from './dialog-generic/dialog-generic.componen
     AddButtonGenericComponent,
     BackButtonGenericComponent,
     DialogGenericComponent,
-
   ],
  imports: [
    CommonModule,
@@ -37,7 +37,6 @@ import { DialogGenericComponent } from './dialog-generic/dialog-generic.componen
   EditGenericComponent,
   AddButtonGenericComponent,
   BackButtonGenericComponent,
-
  ]
 })
 export class SharedModule { }

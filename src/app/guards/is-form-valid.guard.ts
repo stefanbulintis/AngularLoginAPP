@@ -7,15 +7,15 @@ import { AddInfoComponent } from '../shared/Components/add-info/add-info.compone
 @Injectable({
   providedIn: 'root'
 })
-export class IsFormValidGuard{ //implements CanDeactivate<AddInfoComponent> {
-  // constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData){}
-  // canDeactivate(
-  //   component: AddInfoComponent,
-  //   currentRoute: ActivatedRouteSnapshot,
-  //   currentState: RouterStateSnapshot,
-  //   nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-  //   return component.isFormValid
-  //     ? true
-  //     : window.confirm('You have unsaved changes. Leave?');
-  // }
+export class IsFormValidGuard implements CanDeactivate<AddInfoComponent> {
+  constructor(){}
+  canDeactivate(
+    component: AddInfoComponent,
+    currentRoute: ActivatedRouteSnapshot,
+    currentState: RouterStateSnapshot,
+    nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    return component.isFormValid
+      ? true
+      : window.confirm('You have unsaved changes. Leave?');
+  }
 }

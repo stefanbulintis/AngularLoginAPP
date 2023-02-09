@@ -1,22 +1,37 @@
-<form id="formgroup">
-  <mat-form-field appearance="outline">
-    <mat-label> {{ label }} </mat-label>
-    <input
-      [formControl] = "control"
-      [type] = "type"
-      [placeholder] = "placeholder"
-      [matInput type] = "text"
-      [required] = "required"
-      [readonly] = "readonly"
-    />
-  </mat-form-field>
 
-  <ng-container *ngIf="displayErrors()">
-    <div *ngIf="control.errors.required">
-      This value is required
-    </div>
+<div id="formular">
+
+  <ng-container *ngFor="let field of fields">
+    <ng-container [ngSwitch]="field.type">
+      <mat-card-content>
+          <mat-form-field *ngSwitchCase="'input'">
+            <input matInput [placeholder]="field.label" [formControl]="field.control" name="field.control.name">
+          </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'select'">
+          <mat-select [placeholder]="field.label" [formControl]="field.control" name="field.control.name">
+            <mat-option *ngFor="let option of field.options" [value]="option">{{ option }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'multi-select'">
+          <mat-select multiple [formControl]="field.control" [placeholder]="field.label" name="field.control.name">
+            <mat-option *ngFor="let option of field.options" [value]="option">{{option}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'matDatepicker'">
+          <input matInput [matDatepicker]="picker" [placeholder]="field.label" [formControl]="field.control"
+            name="field.control.birthday">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      </mat-card-content>
+    </ng-container>
   </ng-container>
-</form>
+
+</div>
 
 <!-- <app-back-button-generic [text]="'Back'" (onClick)="back($event)" [ngClass]="'primary'"></app-back-button-generic>
 

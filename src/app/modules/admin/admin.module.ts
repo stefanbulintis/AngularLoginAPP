@@ -1,5 +1,6 @@
+import { BackButtonGenericComponent } from './../../shared/Buttons/back-button-generic/back-button-generic.component';
 import { AddInfoComponent } from 'src/app/shared/Components/add-info/add-info.component';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
@@ -31,7 +32,8 @@ import { AddUserComponent } from './components/add-user/add-user.component';
         DetailsComponent,
         EditComponent,
         AddUserComponent,
-        AddInfoComponent
+        AddInfoComponent,
+       
     ],
     exports: [
         FooterComponent
@@ -46,6 +48,9 @@ import { AddUserComponent } from './components/add-user/add-user.component';
         SharedModule,
         HttpClientModule,
         MaterialsModule,
-    ]
+    ],
+    schemas: [
+      NO_ERRORS_SCHEMA
+    ],
 })
 export class AdminModule { }

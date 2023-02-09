@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PeopleService } from 'src/app/services/people.service';
 
 @Component({
@@ -10,11 +10,12 @@ import { PeopleService } from 'src/app/services/people.service';
 export class AddButtonGenericComponent implements OnInit {
 
   constructor(private router: Router,
-    private peopleService: PeopleService) { }
+    private peopleService: PeopleService,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
   goToAddPeople() {
-    this.router.navigate([`addInfo`]);
+    this.router.navigate([`admin/addUser`]);
   }
 }

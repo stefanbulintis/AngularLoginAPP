@@ -17,7 +17,7 @@ const routes: Routes = [
     component:  SidenavComponent,
     children: [
         {
-          path: 'admin',
+          path: '',
           component: AdminDashboardComponent
         },
 
@@ -25,15 +25,18 @@ const routes: Routes = [
           path: 'table',
           component: TableComponent,
         },
+
         {
           path: 'details/:id',
           component: DetailsComponent,
         },
+
         {
           path: 'addUser',
           component: AddUserComponent,
-          canDeactivate: [IsFormValidGuard]
+          //canDeactivate: [IsFormValidGuard]
         },
+        
         {
           path: 'edit/:id',
           component: EditComponent,

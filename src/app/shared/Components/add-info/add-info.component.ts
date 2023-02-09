@@ -2,7 +2,7 @@ import { DialogService } from '../../../services/dialog.service';
 import { Router } from '@angular/router';
 import { PeopleService } from 'src/app/services/people.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-info',
@@ -10,25 +10,23 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./add-info.component.scss']
 })
 export class AddInfoComponent implements OnInit {
-
-  @Input() control: FormControl;
-  @Input() label: string = '';
-  @Input() type: string = 'text';
-  @Input() placeholder: string = '';
-  @Input() required: boolean = false;
-  @Input() readonly: boolean = false;
-
-  @Input() formData: FormGroup;
+  @Input() fields: any[];
 
   //hobbies = new FormControl('');
   // hobbiesList: string[] = ['Cooking', 'Painting', 'Tenis', 'Soccer', 'Sleeping', 'Singing', 'Shopping', 'Gaming', 'Hiking', 'Swimming', 'Boxing', 'Riding', 'Eating', 'Drawing', 'Brainstorming', 'Music', 'Dance', 'Movies'];
   // addForm!: FormGroup;
   // isFormSubmitted = false;
   // isFormValid = () => this.isFormSubmitted || !this.addForm?.dirty;
-  // isFormValid = false;
-  constructor(private dialogService: DialogService, private fb: FormBuilder, private peopleService: PeopleService, private router: Router) { }
+  isFormValid = false;
+  constructor(private dialogService: DialogService, private fb: FormBuilder, private peopleService: PeopleService, private router: Router, private fbD: FormGroupDirective) {
 
+    // for(let field of this.fields){
+    //   this.form.addControl(field.name, field.control);
+    // }
+
+  }
   ngOnInit(): void {
+    console.log(this.fields)
     // this.addForm = this.fb.group({
     //   name: ["", [Validators.required]],
     //   height: ["", [Validators.required]],
@@ -42,12 +40,14 @@ export class AddInfoComponent implements OnInit {
     //   hobbies: ["", [Validators.required]],
     // });
   }
-
-  displayErrors(){
-    const { dirty, touched, errors } = this.control;
-
-    return dirty && touched && errors;
+  back(): void {
+    this.peopleService.back();
   }
+  // displayErrors(){
+  //   const { dirty, touched, errors } = this.control;
+
+  //   return dirty && touched && errors;
+  // }
 
 
   // onSave() {
