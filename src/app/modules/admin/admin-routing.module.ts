@@ -1,3 +1,4 @@
+import { ChartComponent } from './components/chart/chart.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,8 +18,8 @@ const routes: Routes = [
     component:  SidenavComponent,
     children: [
         {
-          path: '',
-          component: AdminDashboardComponent
+          path: 'home',
+          component: AdminDashboardComponent,
         },
 
         {
@@ -36,7 +37,7 @@ const routes: Routes = [
           component: AddUserComponent,
           //canDeactivate: [IsFormValidGuard]
         },
-        
+
         {
           path: 'edit/:id',
           component: EditComponent,
@@ -44,14 +45,19 @@ const routes: Routes = [
         },
 
         {
-          path: 'footer',
-          component: FooterComponent
+          path: 'chart',
+          component: ChartComponent
         },
+
+        // {
+        //   path: 'footer',
+        //   component: FooterComponent
+        // },
     ],
   },
   {
     path: '**',
-    redirectTo: '/admin',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];

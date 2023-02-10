@@ -11,6 +11,7 @@ import { EditGenericComponent } from './Components/edit-generic/edit-generic.com
 import { AddButtonGenericComponent } from './Buttons/add-button-generic/add-button-generic.component';
 import { BackButtonGenericComponent } from './Buttons/back-button-generic/back-button-generic.component';
 import { DialogGenericComponent } from './dialog-generic/dialog-generic.component';
+import { ChartGenericComponent } from './Components/chart-generic/chart-generic.component';
 
 @NgModule({
  declarations: [
@@ -20,6 +21,7 @@ import { DialogGenericComponent } from './dialog-generic/dialog-generic.componen
     AddButtonGenericComponent,
     BackButtonGenericComponent,
     DialogGenericComponent,
+    ChartGenericComponent,
   ],
  imports: [
    CommonModule,

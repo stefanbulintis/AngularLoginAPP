@@ -20,6 +20,7 @@ import { EditComponent } from './table/edit/edit.component';
 import { Location } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AddUserComponent } from './components/add-user/add-user.component';
+import { ChartComponent } from './components/chart/chart.component';
 @NgModule({
     declarations: [
         AdminDashboardComponent,
@@ -33,6 +34,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
         EditComponent,
         AddUserComponent,
         AddInfoComponent,
+        ChartComponent,
        
     ],
     exports: [

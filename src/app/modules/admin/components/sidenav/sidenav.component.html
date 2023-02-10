@@ -7,9 +7,9 @@
         </mat-icon>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'admin'" routerLinkActive="active">
+      <mat-list-item [routerLink]="'home'" routerLinkActive="active">
         <mat-icon mat-list-icon>home</mat-icon>
-        <span *ngIf="isExpanded" class="menu-item">Dashboard</span>
+        <span *ngIf="isExpanded" class="menu-item">Home</span>
       </mat-list-item>
 
       <mat-list-item [routerLink]="'table'" routerLinkActive="active">
@@ -17,9 +17,14 @@
         <span *ngIf="isExpanded" class="menu-item">Table</span>
       </mat-list-item>
 
-      <mat-list-item [routerLink]="'footer'" routerLinkActive="active">
+      <!-- <mat-list-item [routerLink]="'footer'" routerLinkActive="active">
         <mat-icon mat-list-icon>supervisor_account</mat-icon>
         <span *ngIf="isExpanded" class="menu-item">Footer</span>
+      </mat-list-item> -->
+
+      <mat-list-item [routerLink]="'chart'" routerLinkActive="active">
+        <mat-icon mat-list-icon>show_chart</mat-icon>
+        <span *ngIf="isExpanded" class="show_chart">Chart</span>
       </mat-list-item>
 
     </mat-nav-list>
