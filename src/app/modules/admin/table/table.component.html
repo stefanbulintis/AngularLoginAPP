@@ -1,3 +1,4 @@
-<app-add-button-generic></app-add-button-generic>
+<app-back-button-generic [text]="'Add new people'" (onClick)="goToAddPeople($event)" [ngClass]="'primary'"></app-back-button-generic>
+
 <app-tabel-generic [dataSource]="data" [columns]="columns"></app-tabel-generic>
 <router-outlet></router-outlet>

@@ -1,4 +1,15 @@
 <app-back-button-generic [text]="'Back'" (onClick)="back($event)" [ngClass]="'primary'"></app-back-button-generic>
 
-<app-edit-generic></app-edit-generic>
-<router-outlet></router-outlet>
+<form [formGroup]="editForm">
+
+  <mat-card class="mat-elevation-z24">
+    <mat-toolbar color="primary">
+      <span>Edit people:</span>
+    </mat-toolbar>
+    <app-edit-generic [fields]="fields"></app-edit-generic>
+    <mat-card-footer>
+      <button mat-raised-button color="primary" (click)="onUpdate()">Update</button>
+    </mat-card-footer>
+    </mat-card>
+
+</form>

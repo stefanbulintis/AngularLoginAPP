@@ -57,7 +57,7 @@ export class TableComponent extends BaseComponent implements OnInit {
     }
     return temporaryColumns;
   }
-  back(item): void {
-    this.peopleService.back();
+  goToAddPeople(item) {
+    this.peopleService.goToAddPeople();
   }
   }

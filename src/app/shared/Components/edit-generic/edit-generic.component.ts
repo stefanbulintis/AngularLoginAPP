@@ -1,5 +1,5 @@
 import { DialogService } from '../../../services/dialog.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, Params, ActivatedRoute } from '@angular/router';
 import { PeopleService } from 'src/app/services/people.service';
@@ -11,8 +11,7 @@ import { DialogGenericComponent } from '../../dialog-generic/dialog-generic.comp
   styleUrls: ['./edit-generic.component.scss']
 })
 export class EditGenericComponent implements OnInit {
-  hobbiesList: string[] = ['Cooking', 'Painting', 'Tenis', 'Soccer', 'Sleeping', 'Singing', 'Shopping', 'Gaming', 'Hiking', 'Swimming', 'Boxing', 'Riding', 'Eating', 'Drawing', 'Brainstorming', 'Music', 'Dance', 'Movies'];
-  editForm!: FormGroup;
+  @Input() fields: any[];
   isFormSubmitted = false;
   // isFormValid = () => this.isFormSubmitted || !this.addForm?.dirty;
   isFormValid = false;
@@ -21,36 +20,11 @@ export class EditGenericComponent implements OnInit {
   constructor(private dialogService: DialogService,private fb: FormBuilder, private peopleService: PeopleService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.editForm = this.fb.group({
-      name: ["", [Validators.required]],
-      height: ["", [Validators.required]],
-      mass: ["", [Validators.required]],
-      hair_color: ["", [Validators.required]],
-      skin_color: ["", [Validators.required]],
-      eye_color: ["", [Validators.required]],
-      birth_year: ["", [Validators.required]],
-      gender: ["", [Validators.required]],
-      homeworld: ["", [Validators.required]],
-      hobbies: ["", [Validators.required]],
-    });
-
-    this.route.params.subscribe((params: Params) => {
-      this.id = +params["id"];
-    });
-  }
-
-  onUpdate() {
-    if(this.editForm.valid) {
-      this.isFormValid = true;
-      this.peopleService.updatePerson(this.id, this.editForm.value);
-      console.log(this.editForm);
-      this.router.navigate([`admin/table`]);
-    }
-    console.log(this.editForm);
+    
   }
 
   back(): void {
-    this.dialogService.back();
+    this.peopleService.back();
   }
 
 }

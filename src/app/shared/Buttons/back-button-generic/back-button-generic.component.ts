@@ -1,7 +1,7 @@
 import { DialogService } from '../../../services/dialog.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Location } from '@angular/common';
-import { OutletContext } from '@angular/router';
+import { OutletContext, Router } from '@angular/router';
 import { PeopleService } from 'src/app/services/people.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class BackButtonGenericComponent implements OnInit {
   @Input() btnClass: string;
   @Output() onClick = new EventEmitter<string>()
 
-  constructor(private peopleService: PeopleService) {}
+  constructor(private peopleService: PeopleService, private router: Router,) {}
 
   ngOnInit(): void {}
 
@@ -26,4 +26,9 @@ export class BackButtonGenericComponent implements OnInit {
   back(): void {
     this.peopleService.back();
   }
+
+  goToAddPeople() {
+    this.peopleService.goToAddPeople();
+  }
+
 }

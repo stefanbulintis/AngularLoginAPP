@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
 import { BehaviorSubject, Observable, Subject, tap, map, delay } from 'rxjs';
 import { People } from '../model/people';
+import { Router } from '@angular/router';
 
 const peopleData = [
   {
@@ -153,7 +154,7 @@ export class PeopleService {
   private _peopleSubject$ = new BehaviorSubject<People[]>([]);
   public peopleObs$ = this._peopleSubject$.asObservable();
 
-  constructor(private authService: AuthService, private location: Location) {
+  constructor(private authService: AuthService, private location: Location, private router: Router,) {
     const listService = JSON.parse(localStorage.getItem('list'));
     // console.log(listService);
     if (!listService) {
@@ -222,6 +223,10 @@ export class PeopleService {
   clear() {
     this.obj = [];
     this.emit(null);
+  }
+
+  goToAddPeople() {
+    this.router.navigate([`admin/addUser`]);
   }
 
   back(): void {

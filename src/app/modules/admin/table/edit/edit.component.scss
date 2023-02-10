@@ -1,0 +1,44 @@
+// #container {
+//   width: 100vw;
+//   height: 100vh;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+mat-card {
+  width: 1000px;
+  min-height: 480px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+mat-card-content {
+  padding: 20px;
+  margin: 0;
+  padding-bottom: 0;
+
+  mat-form-field {
+    width: 30%;
+    margin-right: 10px;
+  }
+}
+
+mat-card-footer {
+  padding: 40px;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+mat-hint {
+  color: red;
+  margin-left: -10px;
+}
+

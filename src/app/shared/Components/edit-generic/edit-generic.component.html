@@ -1,5 +1,39 @@
-<app-back-button-generic></app-back-button-generic>
 
+<div id="formular">
+
+  <ng-container *ngFor="let field of fields">
+    <ng-container [ngSwitch]="field.type">
+      <mat-card-content>
+          <mat-form-field *ngSwitchCase="'input'">
+            <input matInput [placeholder]="field.label" [formControl]="field.control" name="field.control.name">
+          </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'select'">
+          <mat-select [placeholder]="field.label" [formControl]="field.control" name="field.control.name">
+            <mat-option *ngFor="let option of field.options" [value]="option">{{ option }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'multi-select'">
+          <mat-select multiple [formControl]="field.control" [placeholder]="field.label" name="field.control.name">
+            <mat-option *ngFor="let option of field.options" [value]="option">{{option}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'matDatepicker'">
+          <input matInput [matDatepicker]="picker" [placeholder]="field.label" [formControl]="field.control"
+            name="field.control.birthday">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+      </mat-card-content>
+    </ng-container>
+  </ng-container>
+
+</div>
+
+<!--
 <form id="container" [formGroup]="editForm">
 
   <mat-card class="mat-elevation-z24">
@@ -54,29 +88,29 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Hobbies</mat-label>
-      <mat-select formControlName="hobbies" multiple>
+      <mat-select formControlName="hobbies" multiple> -->
         <!-- <mat-select-trigger>
           {{hobbies.value?.[0] || ''}}
           <span *ngIf="(hobbies.value?.length || 0) > 1" class="example-additional-selection">
             (+{{(hobbies.value?.length || 0) - 1}} {{hobbies.value?.length === 2 ? 'other' : 'others'}})
           </span>
         </mat-select-trigger> -->
-        <mat-option *ngFor="let hobbies of hobbiesList" [value]="hobbies">{{hobbies}}</mat-option>
+        <!-- <mat-option *ngFor="let hobbies of hobbiesList" [value]="hobbies">{{hobbies}}</mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
 
-    <mat-form-field appearance="fill">
+    <!-- <mat-form-field appearance="fill">
       <mat-label>Choose a date</mat-label>
       <input formControlName="birth_year" matInput [matDatepicker]="picker">
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-  </mat-card-content>
+  </mat-card-content> -->
 
-    <mat-card-footer>
+    <!-- <mat-card-footer>
       <button mat-raised-button color="primary" (click)="onUpdate()">Update</button>
     </mat-card-footer>
   </mat-card>
 
-</form>
+</form> -->
