@@ -4,14 +4,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
 import { BaseComponent } from 'src/app/base/base.component';
-// import { ColumnObject } from 'src/app/shared/models/column-object.model';
-// import { ColumnType } from 'src/app/shared/models/column-type.model';
+import { Column } from 'src/app/shared/models/column-object.model';
 
-interface Column {
-  name: string;
-  type: string;
-  action?: string;
-}
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',

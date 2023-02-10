@@ -28,7 +28,6 @@ export class TabelGenericComponent implements OnInit, AfterViewInit {
   names: string[];
   keys: string[];
   isAdmin: string | undefined;
-  //displayedColumns: string[] = ['id', 'name', 'detail', 'edit', 'actions'];
 
   constructor(private router: Router,
     private peopleService: PeopleService,

@@ -32,21 +32,21 @@ export class AddUserComponent implements OnInit {
     {
       control: this.fb.control(''),
       type: 'select',
-      name: 'hairColor',
+      name: 'hair_color',
       label: 'Hair Color',
       options: ['Blue', 'Red', 'Blonde', 'Black', 'Brown'],
     },
     {
       control: this.fb.control(''),
       type: 'select',
-      name: 'skinColor',
+      name: 'skin_color',
       label: 'Skin Color',
       options: ['White', 'Green', 'Blue', 'Black'],
     },
     {
       control: this.fb.control(''),
       type: 'select',
-      name: 'eyeColor',
+      name: 'eye_color',
       label: 'Eye Color',
       options: ['Blue', 'Red', 'Green', 'Black', 'Brown'],
     },
@@ -110,24 +110,22 @@ export class AddUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      fields: this.fb.array([]),
-    });
+    this.form = this.fb.group({});
 
     this.fields.forEach((field) => {
-      const control = this.fb.control('');
-      (this.form.get('fields') as FormArray).push(control);
+      this.form.addControl(field.name, field.control)
     });
   }
 
   onSave() {
     if (this.form.valid) {
+      console.log(this.form.value);
+      console.log(this.form)
       this.isFormValid = true;
       this.peopleService.addPerson(this.form.value);
       console.log(this.form);
       this.router.navigate([`admin/table`]);
     }
-    console.log(this.form);
   }
 
   back(item): void {

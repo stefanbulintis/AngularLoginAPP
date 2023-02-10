@@ -1,5 +1,5 @@
-// import { ColumnType } from "./column-type.model";
-// export interface ColumnObject {
-//   name: string;
-//   colType: ColumnType;
-// }
+export interface Column {
+  name: string;
+  type: string;
+  action?: string;
+}
