@@ -1,4 +1,4 @@
-import { PeopleService } from '../../services/people.service';
+import { PeopleService } from '../../../services/people.service';
 import { Component, inject, Inject, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Location } from '@angular/common';
@@ -11,16 +11,15 @@ import { Location } from '@angular/common';
 export class DialogGenericComponent implements OnInit {
 
   constructor(private peopleService: PeopleService, private location: Location, public dialog: MatDialog, public dialogRef: MatDialogRef<DialogGenericComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
+    @Inject(MAT_DIALOG_DATA) public data: any) {
+      console.log(data)
+    }
 
   ngOnInit(): void {
   }
 
   back(): void {
     this.location.back();
-  }
-  openDialog(): void {
-    this.dialog.open(DialogGenericComponent)
   }
 
 

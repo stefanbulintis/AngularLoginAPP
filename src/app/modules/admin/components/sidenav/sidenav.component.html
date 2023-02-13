@@ -5,6 +5,7 @@
       <mat-list-item (click)="isExpanded = !isExpanded">
         <mat-icon mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_right
         </mat-icon>
+        <span *ngIf="isExpanded" class="chevron-button">Menu</span>
       </mat-list-item>
 
       <mat-list-item [routerLink]="'home'" routerLinkActive="active">
@@ -17,14 +18,14 @@
         <span *ngIf="isExpanded" class="menu-item">Table</span>
       </mat-list-item>
 
-      <!-- <mat-list-item [routerLink]="'footer'" routerLinkActive="active">
-        <mat-icon mat-list-icon>supervisor_account</mat-icon>
-        <span *ngIf="isExpanded" class="menu-item">Footer</span>
-      </mat-list-item> -->
-
       <mat-list-item [routerLink]="'chart'" routerLinkActive="active">
         <mat-icon mat-list-icon>show_chart</mat-icon>
         <span *ngIf="isExpanded" class="show_chart">Chart</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="'gridster'" routerLinkActive="active">
+        <mat-icon mat-list-icon>view_quilt</mat-icon>
+        <span *ngIf="isExpanded" class="gridster">Gridster</span>
       </mat-list-item>
 
     </mat-nav-list>

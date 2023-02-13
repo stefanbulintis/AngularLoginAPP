@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, Params, ActivatedRoute } from '@angular/router';
 import { PeopleService } from 'src/app/services/people.service';
-import { DialogGenericComponent } from '../../dialog-generic/dialog-generic.component';
+import { DialogGenericComponent } from '../dialog-generic/dialog-generic.component';
 
 @Component({
   selector: 'app-edit-generic',
@@ -20,7 +20,7 @@ export class EditGenericComponent implements OnInit {
   constructor(private dialogService: DialogService,private fb: FormBuilder, private peopleService: PeopleService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    
+
   }
 
   back(): void {

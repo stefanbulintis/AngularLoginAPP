@@ -10,7 +10,7 @@ import { DetailsGenericComponent } from './Components/details-generic/details-ge
 import { EditGenericComponent } from './Components/edit-generic/edit-generic.component';
 import { AddButtonGenericComponent } from './Buttons/add-button-generic/add-button-generic.component';
 import { BackButtonGenericComponent } from './Buttons/back-button-generic/back-button-generic.component';
-import { DialogGenericComponent } from './dialog-generic/dialog-generic.component';
+import { DialogGenericComponent } from './Components/dialog-generic/dialog-generic.component';
 import { ChartGenericComponent } from './Components/chart-generic/chart-generic.component';
 
 @NgModule({

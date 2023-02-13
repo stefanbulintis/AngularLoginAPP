@@ -10,6 +10,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { DetailsComponent } from './table/details/details.component';
 import { TableComponent } from './table/table.component';
 import { EditComponent } from './table/edit/edit.component';
+import { GridsterComponent } from './components/gridster/gridster.component';
 
 
 const routes: Routes = [
@@ -49,10 +50,10 @@ const routes: Routes = [
           component: ChartComponent
         },
 
-        // {
-        //   path: 'footer',
-        //   component: FooterComponent
-        // },
+        {
+          path: 'gridster',
+          component: GridsterComponent
+        },
     ],
   },
   {

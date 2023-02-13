@@ -21,6 +21,7 @@ import { Location } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ChartComponent } from './components/chart/chart.component';
+import { GridsterComponent } from './components/gridster/gridster.component';
 @NgModule({
     declarations: [
         AdminDashboardComponent,
@@ -35,6 +36,7 @@ import { ChartComponent } from './components/chart/chart.component';
         AddUserComponent,
         AddInfoComponent,
         ChartComponent,
+        GridsterComponent,
        
     ],
     exports: [
