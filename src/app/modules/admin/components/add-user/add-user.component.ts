@@ -9,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-user.component.scss'],
 })
 export class AddUserComponent implements OnInit {
-  form: FormGroup;
+  addForm: FormGroup;
+  //isFormSubmitted = false;
+  isFormValid = false;
   fields: any[] = [
     {
       control: this.fb.control(''),
@@ -100,9 +102,7 @@ export class AddUserComponent implements OnInit {
     },
   ];
 
-  isFormSubmitted = false;
-  //isFormValid = () => this.isFormSubmitted || !this.form?.dirty;
-  isFormValid = false;
+
   constructor(
     private fb: FormBuilder,
     private peopleService: PeopleService,
@@ -110,20 +110,20 @@ export class AddUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.form = this.fb.group({});
+    this.addForm = this.fb.group({});
 
     this.fields.forEach((field) => {
-      this.form.addControl(field.name, field.control)
+      this.addForm.addControl(field.name, field.control)
     });
   }
 
   onSave() {
-    if (this.form.valid) {
-      console.log(this.form.value);
-      console.log(this.form)
+    if (this.addForm.valid) {
+      console.log(this.addForm.value);
+      console.log(this.addForm)
       this.isFormValid = true;
-      this.peopleService.addPerson(this.form.value);
-      console.log(this.form);
+      this.peopleService.addPerson(this.addForm.value);
+      console.log(this.addForm);
       this.router.navigate([`admin/table`]);
     }
   }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Chart } from 'chart.js'
+import { Chart } from 'chart.js/auto'
 @Component({
   selector: 'app-chart-generic',
   templateUrl: './chart-generic.component.html',
@@ -11,10 +11,10 @@ export class ChartGenericComponent implements OnInit{
   public chart: any;
 
   ngOnInit(): void {
-    if (this.chartData) {
-      this.createChart();
-    }
     console.log(this.chartData)
+    if (this.chartData) {
+    }
+    this.createChart();
   }
 
   createChart(): void {

@@ -11,7 +11,7 @@ import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } f
 })
 export class AddInfoComponent implements OnInit {
   @Input() fields: any[];
-
+  isFormSubmitted = false;
   isFormValid = false;
   constructor(private dialogService: DialogService, private fb: FormBuilder, private peopleService: PeopleService, private router: Router, private fbD: FormGroupDirective) {
   }

@@ -39,6 +39,7 @@ import { ChartGenericComponent } from './Components/chart-generic/chart-generic.
   EditGenericComponent,
   AddButtonGenericComponent,
   BackButtonGenericComponent,
+  ChartGenericComponent
  ]
 })
 export class SharedModule { }

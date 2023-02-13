@@ -35,7 +35,7 @@ const routes: Routes = [
         {
           path: 'addUser',
           component: AddUserComponent,
-          //canDeactivate: [IsFormValidGuard]
+          canDeactivate: [IsFormValidGuard]
         },
 
         {

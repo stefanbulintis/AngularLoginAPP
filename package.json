@@ -20,7 +20,7 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
-    "chart.js": "^2.9.4",
+    "chart.js": "^4.2.0",
     "cors": "^2.8.5",
     "ng-charts": "^1.0.0-alpha",
     "ng2-charts": "^4.1.1",
