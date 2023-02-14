@@ -12,6 +12,7 @@ import { AddButtonGenericComponent } from './Buttons/add-button-generic/add-butt
 import { BackButtonGenericComponent } from './Buttons/back-button-generic/back-button-generic.component';
 import { DialogGenericComponent } from './Components/dialog-generic/dialog-generic.component';
 import { ChartGenericComponent } from './Components/chart-generic/chart-generic.component';
+import { StepperComponent } from './Components/stepper/stepper.component';
 
 @NgModule({
  declarations: [
@@ -22,6 +23,7 @@ import { ChartGenericComponent } from './Components/chart-generic/chart-generic.
     BackButtonGenericComponent,
     DialogGenericComponent,
     ChartGenericComponent,
+    StepperComponent,
   ],
  imports: [
    CommonModule,
