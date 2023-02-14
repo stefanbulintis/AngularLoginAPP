@@ -18,7 +18,7 @@ export class GridsterComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogGenericComponent, {
       data: data,
       width: '600px',
-      height: '400px',
+      height: '500px',
       enterAnimationDuration,
       exitAnimationDuration,
     });
