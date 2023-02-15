@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { AddInfoComponent } from 'src/app/shared/Components/add-info/add-info.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -13,6 +13,7 @@ import { BackButtonGenericComponent } from './Buttons/back-button-generic/back-b
 import { DialogGenericComponent } from './Components/dialog-generic/dialog-generic.component';
 import { ChartGenericComponent } from './Components/chart-generic/chart-generic.component';
 import { StepperComponent } from './Components/stepper/stepper.component';
+import { SBSComponent } from './Components/sbs/sbs.component';
 
 @NgModule({
  declarations: [
@@ -24,12 +25,14 @@ import { StepperComponent } from './Components/stepper/stepper.component';
     DialogGenericComponent,
     ChartGenericComponent,
     StepperComponent,
+    SBSComponent,
   ],
  imports: [
    CommonModule,
    RouterModule,
    MaterialsModule,
    ReactiveFormsModule,
+   FormsModule
 
  ],
  exports: [
@@ -41,7 +44,8 @@ import { StepperComponent } from './Components/stepper/stepper.component';
   EditGenericComponent,
   AddButtonGenericComponent,
   BackButtonGenericComponent,
-  ChartGenericComponent
+  ChartGenericComponent,
+  StepperComponent
  ]
 })
 export class SharedModule { }

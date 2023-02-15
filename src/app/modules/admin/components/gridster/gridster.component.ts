@@ -25,5 +25,4 @@ export class GridsterComponent implements OnInit {
   }
   ngOnInit(): void {
   }
-
 }

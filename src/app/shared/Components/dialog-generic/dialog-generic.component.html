@@ -1,5 +1,2 @@
-
-<p>{{data.msg}}</p>
-<app-stepper></app-stepper>
-
+<app-stepper [steps]="steps" (stepChange)="onStepChange($event)"></app-stepper>
 

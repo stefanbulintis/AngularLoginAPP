@@ -1,14 +1,41 @@
-<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+<!-- <mat-vertical-stepper [linear]="linear" *ngIf="orientation === 'vertical'">
+  <mat-step *ngFor="let step of steps; let i = index;" [stepControl]="step.form">
+    <ng-template matStepLabel>
+      <span class="step-number">{{i + 1}}</span>
+      {{step.label}}
+    </ng-template>
+    <ng-container *ngTemplateOutlet="step.template"></ng-container>
+  </mat-step>
+</mat-vertical-stepper>
+
+<mat-horizontal-stepper [linear]="linear" *ngIf="orientation === 'horizontal'">
+  <mat-step *ngFor="let step of steps; let i = index;" [stepControl]="step.form">
+    <ng-template matStepLabel>
+      <span class="step-number">{{i + 1}}</span>
+      {{step.label}}
+    </ng-template>
+    <ng-container *ngTemplateOutlet="step.template"></ng-container>
+    <div class="actions">
+      <button mat-button *ngIf="i > 0" color="accent" matStepperPrevious>Previous</button>
+      <button mat-button *ngIf="i < steps.length - 1" color="accent" matStepperNext [disabled]="!step.form.valid">Next</button>
+      <button mat-button *ngIf="i === steps.length - 1" color="accent" (click)="submit()" [disabled]="!form.valid">Submit</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper> -->
+
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button>
 <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
   <mat-step [stepControl]="firstFormGroup">
     <form [formGroup]="firstFormGroup">
-      <ng-template matStepLabel>Fill out your name</ng-template>
+      <ng-template matStepLabel>Select type:</ng-template>
+
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
         <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
       </mat-form-field>
+
       <div>
         <button mat-button matStepperNext>Next</button>
       </div>
@@ -36,4 +63,101 @@
       <button mat-button (click)="stepper.reset()">Reset</button>
     </div>
   </mat-step>
-</mat-stepper>
+</mat-stepper> -->
+<!-- <mat-horizontal-stepper [linear]="linear" [selectedIndex]="activeIndex">
+  <mat-step *ngFor="let step of steps; let i = index;" [completed]="step.form.valid" [stepControl]="step.form">
+    <ng-template matStepLabel>{{step.label}}</ng-template>
+    <ng-container *ngTemplateOutlet="step.template"></ng-container>
+    <div>
+      <button mat-button *ngIf="i > 0" (click)="prev()">Back</button>
+      <button mat-button color="primary" *ngIf="i < steps.length - 1" [disabled]="!step.form.valid" (click)="next()">Next</button>
+      <button mat-button color="primary" *ngIf="i === steps.length - 1" [disabled]="!form.valid" (click)="submit()">Submit</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper> -->
+
+
+<!-- <mat-vertical-stepper #stepper [linear]="true">
+  <mat-step *ngFor="let step of steps; let i = index" [completed]="i < stepIndex">
+    <ng-template matStepLabel>{{ step }}</ng-template>
+    <p>{{ step }}</p>
+    <div>
+      <button mat-button *ngIf="i > 0" (click)="selectStep(stepper, i - 1)">Previous</button>
+      <button mat-button color="primary" *ngIf="i < steps.length - 1" (click)="selectStep(stepper, i + 1)">Next</button>
+      <button mat-button color="accent" *ngIf="i === steps.length - 1">Finish</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper> -->
+
+<mat-vertical-stepper #stepper [linear]="true">
+  <mat-step>
+    <ng-template matStepLabel>Select an option</ng-template>
+    <mat-form-field>
+      <mat-select [(ngModel)]="selectedOption">
+        <mat-option value="chart">Chart</mat-option>
+        <mat-option value="table">Table</mat-option>
+        <mat-option value="form">Form</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <button mat-button color="primary" (click)="selectStep(stepper, 1)">Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Enter data</ng-template>
+    <div [ngSwitch]="selectedOption">
+      <div *ngSwitchCase="'chart'" >
+        <mat-form-field>
+          <input matInput placeholder="Chart data" [ngModel]="chartData" (ngModelChange)="chartData = $event" />
+        </mat-form-field>
+        <div *ngIf="chartData">
+          <div style="width: 100%; height: 300px;" >
+            <canvas #chart ></canvas>
+          </div>
+        </div>
+      </div>
+      <div *ngSwitchCase="'table'">
+        <mat-form-field>
+          <input matInput placeholder="Name" [ngModel]="name" (ngModelChange)="name = $event" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Surname" [ngModel]="surname" (ngModelChange)="surname = $event" />
+        </mat-form-field>
+        <div *ngIf="name && surname">
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Surname</th>
+            </tr>
+            <tr>
+              <td>{{ name }}</td>
+              <td>{{ surname }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div *ngSwitchCase="'form'">
+        <mat-form-field>
+          <input matInput placeholder="First name" [ngModel]="firstName" (ngModelChange)="firstName = $event" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Last name" [ngModel]="lastName" (ngModelChange)="lastName = $event" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Email" [ngModel]="email" (ngModelChange)="email = $event" />
+        </mat-form-field>
+        <div *ngIf="firstName && lastName && email">
+          <div>First name: {{ firstName }}</div>
+          <div>Last name: {{ lastName }}</div>
+          <div>Email: {{ email }}</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button mat-button *ngIf="stepIndex > 0" (click)="selectStep(stepper, stepIndex - 1)">Previous</button>
+      <button mat-button color="primary" *ngIf="stepIndex < steps.length - 1" (click)="selectStep(stepper, stepIndex + 1)">Next</button>
+      <button mat-button color="accent" *ngIf="stepIndex === steps.length - 1">Finish</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

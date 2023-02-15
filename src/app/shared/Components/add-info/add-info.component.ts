@@ -9,7 +9,7 @@ import { FormBuilder, FormControl, FormGroup, FormGroupDirective, Validators } f
   templateUrl: './add-info.component.html',
   styleUrls: ['./add-info.component.scss']
 })
-export class AddInfoComponent implements OnInit {
+export class AddInfoComponent {
   @Input() fields: any[];
   isFormSubmitted = false;
   isFormValid = false;

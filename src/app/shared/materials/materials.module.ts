@@ -21,7 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [],
@@ -48,7 +48,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatNativeDateModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatStepperModule
+    MatStepperModule,
   ],
 
   exports: [
@@ -72,7 +72,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    MatStepperModule
+    MatStepperModule,
   ],
 })
 export class MaterialsModule { }
